@@ -1,0 +1,233 @@
+<form class="layui-form" action="">
+    <div class="layui-fluid" id="view-userAdmin-user" lay-title="普通用户">
+
+        <div class="border-box">
+            <!-- 搜索查询 -->
+            <div class="layui-form-item">
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="number" lay-verify="required|number" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">手机</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="date" lay-verify="required|number" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">店铺名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="date" lay-verify="required|number" autocomplete="off"
+                            class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <label class="layui-form-label">性别</label>
+                    <div class="layui-input-block">
+                        <select name="interest" lay-filter="aihao">
+                            <option value=""></option>
+                            <option value="0">男</option>
+                            <option value="1">女</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <button type="button" class="layui-btn btn_style">查询</button>
+                    <button type="button" class="layui-btn btn_style">重置</button>
+                </div>
+
+            </div>
+
+            <div class="btnBox">
+                <button type="button" class="layui-btn btn_style">删除</button>
+                <button type="button" class="layui-btn btn_style">编辑</button>
+            </div>
+
+            <table class="layui-table" id="demo"></table>
+        </div>
+    </div>
+</form>
+<style>
+    .border-box {
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    .layui-form-label {
+        /* width: 46px; */
+    }
+
+    .layui-input-block {
+        /* margin-left: 82px; */
+    }
+
+    .btn_style {
+        background-color: #33ab9f;
+    }
+
+    .btnBox {
+        padding-left: 16px;
+    }
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    layui.use('jquery', function (args) {
+        var $ = layui.jquery;
+        // let list = "";
+        // for (let i = 0; i < 4; i++) {
+        //     list = '<tr>' +
+        //     '<td><input type="checkbox" name="" title="fad" lay-skin="primary"></td>' +
+        //     '<td>2016-11-22</td>' +
+        //     '<td>2016-11-22</td>' +
+        //     '<td>人生就像一场修</td>' +
+        //     '</tr>';
+
+        //     $(list).appendTo(".target");
+        // }
+
+    });
+
+
+    layui.use('form', function () {
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+        form.render();
+        console.log("======== jquery Start========")
+        console.log("======== jquery End========")
+    });
+
+    layui.use('table', function () {
+        var table = layui.table;
+        //展示已知数据
+        console.log("=== 展示的数据 START ===")
+        table.render({
+            elem: '#demo',
+            cols: [
+                [ //标题栏
+                    {
+                        type: 'checkbox',
+                        fixed: 'left'
+                    },
+                    {
+                        field: 'id',
+                        title: 'ID',
+                        // width: 80,
+                        sort: true,
+                        fixed: 'left',
+                    }, {
+                        field: 'userName',
+                        title: '用户名',
+                        width: 120
+                    }, {
+                        field: 'userImg',
+                        title: '头像',
+                        minWidth: 60
+                    }, {
+                        field: 'phone',
+                        title: '手机',
+                        minWidth: 160
+                    }, {
+                        field: 'sex',
+                        title: '性别',
+                        width: 80
+                    }, {
+                        field: 'business_Name',
+                        title: '店铺名称',
+                        // width: 180,
+                        // sort: true
+                    },{
+                        field: 'business_License',
+                        title: '营业执照',
+                        // width: 180,
+                        // sort: true
+                    },{
+                        field: 'service_License',
+                        title: '服务许可证',
+                        // width: 180,
+                        // sort: true
+                    },{
+                        field: 'registerTime',
+                        title: '注册时间',
+                        width: 180,
+                        sort: true
+                    }
+                ]
+            ],
+            data: [{
+                "id": "10001",
+                "userName": "杜甫",
+                "userImg": "<img src='../../images/login-bg.png'>",
+                "phone": "13855512345",
+                "sex": "男",
+                "business_Name": "XX店铺名",
+                "business_License": "<img src='../../images/login-bg.png'>",
+                "service_License": "<img src='../../images/login-bg.png'>",
+                "registerTime": "2016-10-10",
+            },{
+                "id": "10001",
+                "userName": "杜甫",
+                "userImg": "<img src='../../images/login-bg.png'>",
+                "phone": "13855512345",
+                "sex": "男",
+                "business_Name": "XX店铺名",
+                "business_License": "<img src='../../images/login-bg.png'>",
+                "service_License": "<img src='../../images/login-bg.png'>",
+                "registerTime": "2016-10-10",
+            },{
+                "id": "10001",
+                "userName": "杜甫",
+                "userImg": "<img src='../../images/login-bg.png'>",
+                "phone": "13855512345",
+                "sex": "男",
+                "business_Name": "XX店铺名",
+                "business_License": "<img src='../../images/login-bg.png'>",
+                "service_License": "<img src='../../images/login-bg.png'>",
+                "registerTime": "2016-10-10",
+            },{
+                "id": "10001",
+                "userName": "杜甫",
+                "userImg": "<img src='../../images/login-bg.png'>",
+                "phone": "13855512345",
+                "sex": "男",
+                "business_Name": "XX店铺名",
+                "business_License": "<img src='../../images/login-bg.png'>",
+                "service_License": "<img src='../../images/login-bg.png'>",
+                "registerTime": "2016-10-10",
+            },{
+                "id": "10001",
+                "userName": "杜甫",
+                "userImg": "<img src='../../images/login-bg.png'>",
+                "phone": "13855512345",
+                "sex": "男",
+                "business_Name": "XX店铺名",
+                "business_License": "<img src='../../images/login-bg.png'>",
+                "service_License": "<img src='../../images/login-bg.png'>",
+                "registerTime": "2016-10-10",
+            },{
+                "id": "10001",
+                "userName": "杜甫",
+                "userImg": "<img src='../../images/login-bg.png'>",
+                "phone": "13855512345",
+                "sex": "男",
+                "business_Name": "XX店铺名",
+                "business_License": "<img src='../../images/login-bg.png'>",
+                "service_License": "<img src='../../images/login-bg.png'>",
+                "registerTime": "2016-10-10",
+            }, ],
+            skin: 'row', //表格风格
+            even: true, //不知道是啥
+            page: true, //是否显示分页
+            limits: [5, 10], // n条一页 - 设置
+            limit: 3 //每页默认显示的数量
+        });
+        console.log("=== 展示的数据 END ===")
+    });
+</script>
